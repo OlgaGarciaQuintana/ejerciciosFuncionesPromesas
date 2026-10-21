@@ -47,18 +47,18 @@ function borrarPersona(vectorPersonas, telefono) {
 equivocada (teléfono ya existente en el vector), y borrar una persona correcta y otra equivocada 
 (teléfono no existente en el vector). Comprueba que el resultado al ejecutar es el que esperabas.*/
 
-nuevaPersona({nombre: "Juan", telefono:"965661564", edad: 60})
-    .then(persona => console.log("Persona añadida:", persona))
+nuevaPersona(datos, {nombre: "Juan", telefono:"965661564", edad: 60})
+    .then(persona => console.log(`Persona añadida: ${persona.nombre}`))
     .catch(error => console.log(error));
 
-nuevaPersona({nombre: "Ana", telefono:"911223344", edad: 35})
-    .then(persona => console.log("Persona añadida:", persona))
+nuevaPersona(datos, {nombre: "Ana", telefono:"911223344", edad: 35})
+    .then(persona => console.log(`Persona añadida: ${persona.nombre}`))
     .catch(error => console.log(error));
 
-borrarPersona("633663366")
-    .then(persona => console.log("Persona eliminada:", persona))
+borrarPersona(datos, "611998877")
+    .then(persona => console.log(`Persona eliminada: ${persona.nombre}`))
     .catch(error => console.log(error));
 
-borrarPersona("666666666")
-    .then(persona => console.log("Persona eliminada:", persona))
+borrarPersona(datos, "999999999")
+    .then(persona => console.log(`Persona eliminada: ${persona.nombre}`))
     .catch(error => console.log(error));
