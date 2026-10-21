@@ -15,11 +15,11 @@ let datos = [
 si la inserción fue satisfactoria, o con reject el mensaje "Error: el teléfono ya existe" 
 si no se pudo insertar la persona porque ya existía su teléfono en el vector */
 
-function nuevaPersona(persona) {
+function nuevaPersona(vectorPersonas, persona) {
     return new Promise((resolve, reject) => {
-        const existe = datos.some(p => p.telefono === persona.telefono);
+        const existe = vectorPersonas.some(p => p.telefono === persona.telefono);
         if (!existe) {
-            datos.push(persona);
+            vectorPersonas.push(persona);
             resolve(persona);
         } else {
             reject("Error: el teléfono ya existe");
@@ -31,11 +31,11 @@ function nuevaPersona(persona) {
 si el borrado fue satisfactorio, o con reject un mensaje "Error: no se encontraron 
 coincidencias" si no existía ninguna persona con ese teléfono en el vector.*/
 
-function borrarPersona(telefono) {
+function borrarPersona(vectorPersonas, telefono) {
     return new Promise((resolve, reject) => {
-        const persona = datos.find(p => p.telefono === telefono);
+        const persona = vectorPersonas.find(p => p.telefono === telefono);
         if (persona) {
-            datos = datos.filter(p => p.telefono !== telefono);
+            vectorPersonas = vectorPersonas.filter(p => p.telefono !== telefono);
             resolve(persona);
         } else {
             reject("Error: no se encontraron coincidencias");
